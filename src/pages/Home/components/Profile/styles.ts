@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const ProfileContainer = styled.section`
   width: 100%;
@@ -8,7 +8,8 @@ export const ProfileContainer = styled.section`
   background: ${(props) => props.theme['base-profile']};
   border-radius: 10px;
 
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
 
   display: flex;
   justify-content: space-between;
@@ -16,22 +17,22 @@ export const ProfileContainer = styled.section`
 
   aside {
     width: 9.25rem;
-  
-    img{
+
+    img {
       border-radius: 10px;
       width: 100%;
     }
   }
 
-
   header {
+    width: 100%;
     display: flex;
     justify-content: space-between;
 
     h1 {
       line-height: 130%;
       font-size: 1.5rem;
-      color: ${(props) => props.theme['base-title']}
+      color: ${(props) => props.theme['base-title']};
     }
 
     a {
@@ -40,7 +41,7 @@ export const ProfileContainer = styled.section`
       text-decoration: none;
       font-weight: bold;
       cursor: pointer;
-      color: ${(props) => props.theme['blue']};
+      color: ${(props) => props.theme.blue};
       align-content: center;
       border-bottom: 2px solid transparent;
 
@@ -48,8 +49,7 @@ export const ProfileContainer = styled.section`
 
       &:hover {
         opacity: 0.75;
-        border-bottom: 2px solid ${(props) => props.theme['blue']};
-        
+        border-bottom: 2px solid ${(props) => props.theme.blue};
       }
 
       span {
@@ -59,28 +59,32 @@ export const ProfileContainer = styled.section`
       }
     }
   }
-  
 `
 
 export const InfoArea = styled.div`
-margin-top: 0.5rem;
-align-items: center;
-width: 38.25rem;
-
-p {
-  line-height: 160%;
   margin-top: 0.5rem;
-  color: ${(props) => props.theme['base-text']}
-}
+  align-items: center;
+  width: 38.25rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+
+  p {
+    line-height: 160%;
+    margin-top: 0.5rem;
+    color: ${(props) => props.theme['base-text']};
+  }
 `
 
 export const Icons = styled.footer`
-display: flex;
-justify-content: flex-start;
-gap: 1.5rem;
-flex-wrap: wrap;
-margin-top: 1.5rem;
-
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
 `
 
 export const Icon = styled.div`

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const FormContainer = styled.form`
   margin-top: 4.5rem;
@@ -39,8 +39,7 @@ export const FormContainer = styled.form`
     }
 
     &:focus {
-      border: 2px solid ${(props) => props.theme['blue']};
+      border: 2px solid ${(props) => props.theme.blue};
     }
-
   }
 `

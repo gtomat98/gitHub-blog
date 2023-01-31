@@ -1,44 +1,48 @@
-import { Icon, Icons, InfoArea, ProfileContainer } from "./styles";
-import Avatar from '../../../../assets/avatar.png'
+import { Icon, Icons, InfoArea, ProfileContainer } from './styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBuilding, faUserGroup, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
+import {
+  faBuilding,
+  faUserGroup,
+  faArrowUpRightFromSquare,
+} from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { useContext } from 'react'
+import { PostsContext } from '../../../../contexts/PostsContext'
 
 export function Profile() {
+  const { user } = useContext(PostsContext)
   return (
     <ProfileContainer>
       <aside>
-        <img src={Avatar} />
+        <img src={user?.avatar} alt="" />
       </aside>
       <InfoArea>
         <header>
-          <h1>Cameron Williamson</h1>
-          <a>
-            <span>GITHUB <FontAwesomeIcon icon={faArrowUpRightFromSquare} size='1x' /></span>
-
+          <h1>{user?.userName}</h1>
+          <a href={user?.githubProfile} target="_blank" rel="noreferrer">
+            <span>
+              GITHUB <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+            </span>
           </a>
         </header>
-        <p>Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.</p>
+        <p>{user?.biography}</p>
         <Icons>
           <Icon>
             <FontAwesomeIcon icon={faGithub} />
-            <span>cameronwll</span>
+            <span>{user?.userName}</span>
           </Icon>
 
-          <Icon>
-            <FontAwesomeIcon icon={faBuilding} />
-            <span>Rocketseat</span>
-          </Icon>
+          {user?.employeeWhere != null && (
+            <Icon>
+              <FontAwesomeIcon icon={faBuilding} />
+              <span>{user?.employeeWhere}</span>
+            </Icon>
+          )}
 
           <Icon>
             <FontAwesomeIcon icon={faUserGroup} />
-            <span>32 seguidores</span>
+            <span>{user?.followers} seguidores</span>
           </Icon>
-
-
-
-
-
         </Icons>
       </InfoArea>
     </ProfileContainer>

@@ -1,34 +1,30 @@
-import { Profile } from "./components/Profile";
-import { SearchForm } from "./components/SearchForm";
-import { HomeContainer } from "./styles";
+import { Profile } from './components/Profile'
+import { SearchForm } from './components/SearchForm'
+import { HomeContainer } from './styles'
 import { NavLink } from 'react-router-dom'
+import { useContext } from 'react'
+import { PostsContext } from '../../contexts/PostsContext'
 
 export function Home() {
+  const { posts } = useContext(PostsContext)
   return (
     <HomeContainer>
       <Profile />
       <SearchForm />
       <ul>
-        <li>
-          <NavLink to='/post'>
-            <header>
-              <h3>JavaScript data types and data structures</h3>
-              <span>Há 1 dia</span>
-            </header>
-            <p>Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in...</p>
-          </NavLink>
-
-        </li>
-        <li>
-          <NavLink to='/post'>
-            <header>
-              <h3>JavaScript data types and data structures</h3>
-              <span>Há 1 dia</span>
-            </header>
-            <p>Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in...</p>
-          </NavLink>
-
-        </li>
+        {posts.map((post) => {
+          return (
+            <li key={post.title}>
+              <NavLink to="/post">
+                <header>
+                  <h3>{post.title}</h3>
+                  <span>{post.created_at}</span>
+                </header>
+                <p>{post.body}</p>
+              </NavLink>
+            </li>
+          )
+        })}
       </ul>
     </HomeContainer>
   )
